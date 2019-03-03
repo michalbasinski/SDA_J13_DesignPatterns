@@ -3,23 +3,21 @@ package pl.sda.patterns.factory;
 public class FileWriterFactory {
 
     public FileWriter produce(String path) {
-        FileWriter fileWriter = null;
-
         if (path.endsWith(".xml")) {
-            fileWriter = new XmlWriter();
+            return new XmlWriter();
         }
         if (path.endsWith(".json")) {
-            fileWriter = new JsonWriter();
+            return new JsonWriter();
         }
         if (path.endsWith(".pdf")) {
-            fileWriter = new PdfWriter();
+            return new PdfWriter();
         }
         if (path.endsWith(".csv")) {
-            fileWriter = new CsvWriter();
+            return new CsvWriter();
         }
         if (path.endsWith(".xlsx")) {
-            fileWriter = new ExcelWriter();
+            return new ExcelWriter();
         }
-        return fileWriter;
+        return null;
     }
 }
